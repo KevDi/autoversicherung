@@ -51,4 +51,14 @@
         ng-model="customerData.age"/>
     </div>
 
+    <div class="form-group">
+        <label for="gender">Gender</label>
+        <select id="gender"
+                cam-variable-type="String"
+                cam-variable-name="carType"
+                ng-model="customerData.gender">
+            <option value="männlich" selected>Männlich</option>
+            <option value="weiblich">weiblich</option>
+        </select>
+    </div>
 </form>
