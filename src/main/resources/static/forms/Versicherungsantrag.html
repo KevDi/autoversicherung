@@ -1,0 +1,53 @@
+<form name="Versicherungsantrag">
+    <div class="form-group">
+        <label for="customerName">Name</label>
+        <input class="form-control"
+                cam-variable-type="String"
+                cam-variable-name="customerName"
+                name="customerName" />
+    </div>
+
+    <div class="form-group">
+        <label for="customerEmail">Email</label>
+        <input class="form-control"
+               cam-variable-type="String"
+               cam-variable-name="customerEmail"
+               name="customerEmail"
+                type="email"/>
+    </div>
+
+    <div class="form-group">
+        <label for="customerAge">Alter</label>
+        <input class="form-control"
+               cam-variable-type="Integer"
+               cam-variable-name="age"
+               name="customerAge"
+               type="number"
+                min="18"
+                max="100"/>
+    </div>
+
+    <div class="form-group">
+        <label for="customerSF">Jahre Unfallfrei</label>
+        <input class="form-control"
+               cam-variable-type="Integer"
+               cam-variable-name="sfClass"
+               name="customerSF"
+               type="number"
+               min="0"
+               max="40"/>
+    </div>
+
+    <div class="form-group">
+        <label for="cars">Autotyp</label>
+        <select name="cars"
+                cam-variable-type="String"
+                cam-variable-name="carType">
+            <option value="Kleinwagen">Kleinwagen</option>
+            <option value="Mittelklasse">Mittelklasse</option>
+            <option value="Sportwagen">Sportwagen</option>
+        </select>
+    </div>
+
+
+</form>
