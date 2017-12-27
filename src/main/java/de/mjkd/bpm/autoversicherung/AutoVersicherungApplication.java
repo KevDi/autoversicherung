@@ -37,13 +37,13 @@ public class AutoVersicherungApplication {
     private void createUsers(ProcessEngine processEngine) {
         UserDataGenerator.createDefaultUsers(processEngine);
 
-        UserDataGenerator.addUser(processEngine, "rudi", "rudi", "Rudi", "Guselmann");
-        UserDataGenerator.addUser(processEngine, "alex", "alex", "Alexander", "Weidner");
-        UserDataGenerator.addUser(processEngine, "kevin", "kevin", "Kevin", "Dick");
+        UserDataGenerator.addUser(processEngine, "user2", "user2", "user2", "user2");
+        UserDataGenerator.addUser(processEngine, "user3", "user3", "user3", "user3");
+        UserDataGenerator.addUser(processEngine, "user1", "user1", "user1", "user1");
         UserDataGenerator.addUser(processEngine, "antragsteller", "antragsteller", "Antrag", "Steller");
 
-        UserDataGenerator.addGroup(processEngine, "management", "Management", "kevin");
-        UserDataGenerator.addGroup(processEngine, "mitarbeiter", "Mitarbeiter", "rudi", "alex");
+        UserDataGenerator.addGroup(processEngine, "management", "Management", "user1");
+        UserDataGenerator.addGroup(processEngine, "mitarbeiter", "Mitarbeiter", "user2", "user3");
         UserDataGenerator.addGroup(processEngine, "extern", "extern", "antragsteller");
 
         UserDataGenerator.addFilterGroupAuthorization(processEngine, "mitarbeiter", DefaultFilter.FILTER_myTasks, DefaultFilter.FILTER_groupTasksFilter, DefaultFilter.FILTER_allTasksFilter);
@@ -51,35 +51,38 @@ public class AutoVersicherungApplication {
         UserDataGenerator.addFilterGroupAuthorization(processEngine, "extern", DefaultFilter.FILTER_myTasks, DefaultFilter.FILTER_groupTasksFilter, DefaultFilter.FILTER_allTasksFilter);
 
 
-
-
         UserDataGenerator.createGrantGroupAuthorization(processEngine,
                 new String[]{"mitarbeiter"},
                 new Permission[] {Permissions.READ, Permissions.READ_HISTORY, Permissions.UPDATE_INSTANCE},
                 Resources.PROCESS_DEFINITION,
                 new String[]{PROCESS_DEFINITION_KEY});
+
         UserDataGenerator.createGrantUserAuthorization(processEngine, //
-                new String[] { "kevin" }, //
+                new String[] { "user1" }, //
                 new Permission[] { Permissions.READ, Permissions.READ_HISTORY, Permissions.READ_INSTANCE, Permissions.UPDATE_INSTANCE }, //
                 Resources.PROCESS_DEFINITION, //
                 new String[] { PROCESS_DEFINITION_KEY });
+
         UserDataGenerator.createGrantUserAuthorization(processEngine,
-                new String[]{"kevin"},
+                new String[]{"user1"},
                 new Permission[]{Permissions.READ, Permissions.READ_HISTORY},
                 Resources.DECISION_DEFINITION,
                 new String[] {"riskAssessment"});
+
         UserDataGenerator.createGrantUserAuthorization(processEngine, //
-                new String[] { "kevin" }, //
+                new String[] { "user1" }, //
                 new Permission[] { Permissions.READ, Permissions.UPDATE }, //
                 Resources.TASK, //
                 new String[] { "*" });
+
         UserDataGenerator.createGrantUserAuthorization(processEngine, //
-                new String[] { "kevin" }, //
+                new String[] { "user1" }, //
                 new Permission[] { Permissions.ALL }, //
                 Resources.DEPLOYMENT, //
                 new String[] { "*" });
+
         UserDataGenerator.createGrantUserAuthorization(processEngine, //
-                new String[] { "kevin" }, //
+                new String[] { "user1" }, //
                 new Permission[] { Permissions.ACCESS }, //
                 Resources.APPLICATION, //
                 new String[] { "cockpit" });

@@ -1,10 +1,32 @@
 <form name="Versicherungsantrag">
+
+    <script cam-script type="text/form-script">
+
+        var customerData = $scope.customerData = {};
+
+        camForm.on('form-loaded', function() {
+            camForm.variableManager.createVariable({
+                name: 'customerData',
+                type: 'Object',
+                value: customerData,
+                valueInfo: {
+                    serializationDataFormat: 'application/json',
+                    objectTypeName: 'de.mjkd.bpm.model.Person'
+                }
+            });
+        });
+
+    </script>
+
+    <h3>Vertragsdetails</h3>
+
     <div class="form-group">
         <label for="customerName">Name</label>
         <input class="form-control"
                 cam-variable-type="String"
                 cam-variable-name="customerName"
-                name="customerName" />
+                id="customerName"
+                ng-model="customerData.name"/>
     </div>
 
     <div class="form-group">
@@ -12,8 +34,9 @@
         <input class="form-control"
                cam-variable-type="String"
                cam-variable-name="customerEmail"
-               name="customerEmail"
-                type="email"/>
+               id="customerEmail"
+               type="email"
+                ng-model="customerData.email"/>
     </div>
 
     <div class="form-group">
@@ -21,33 +44,11 @@
         <input class="form-control"
                cam-variable-type="Integer"
                cam-variable-name="age"
-               name="customerAge"
+               id="customerAge"
                type="number"
                 min="18"
-                max="100"/>
+                max="100"
+        ng-model="customerData.age"/>
     </div>
-
-    <div class="form-group">
-        <label for="customerSF">Jahre Unfallfrei</label>
-        <input class="form-control"
-               cam-variable-type="Integer"
-               cam-variable-name="sfClass"
-               name="customerSF"
-               type="number"
-               min="0"
-               max="40"/>
-    </div>
-
-    <div class="form-group">
-        <label for="cars">Autotyp</label>
-        <select name="cars"
-                cam-variable-type="String"
-                cam-variable-name="carType">
-            <option value="Kleinwagen">Kleinwagen</option>
-            <option value="Mittelklasse">Mittelklasse</option>
-            <option value="Sportwagen">Sportwagen</option>
-        </select>
-    </div>
-
 
 </form>

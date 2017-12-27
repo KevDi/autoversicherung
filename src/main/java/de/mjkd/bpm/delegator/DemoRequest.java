@@ -1,5 +1,6 @@
 package de.mjkd.bpm.delegator;
 
+import de.mjkd.bpm.model.Person;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
 
@@ -11,7 +12,7 @@ public class DemoRequest implements JavaDelegate {
 
     @Override
     public void execute(DelegateExecution delegateExecution) throws Exception {
-        LOGGER.info("Risiko: " + delegateExecution.getVariable("risk"));
-
+        Person person = (Person)delegateExecution.getVariable("customerData");
+        LOGGER.info(person.getName());
     }
 }
