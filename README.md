@@ -1,6 +1,12 @@
-## Run the application and check the result
+## Anwendung erstellen und Starten
 
-You can then build the application by calling `mvn clean install` and then run it with `java -jar` command.
+Mit `mvn clean install` wird die Anwendung gebaut und kann anschließend mittels `java -jar` gestartet werden.
 
-Go to `http://localhost:8080`, log in with "kermit/kermit", go to Tasklist and try to start the process and complete the tasks, observe log entries 
-or the real tweet when `TweetContentDelegate` is used.
+Nach dem Start der Anwendung zu `http://localhost:8080` navigieren und sich mit User "antragsteller/antragsteller" einloggen.
+Über die Tasklist lässt sich der Task starten.
+
+Andere User:
+
+* kevin:kevin
+* rudi:rudi
+* alex:alex
